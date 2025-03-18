@@ -1,84 +1,19 @@
-<h1 class="form-title">Add a New Location</h1>
+<h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Add a New Location</h1>
 
-<form method="POST" action="?/createLocation" class="form-container" use:enhance>
-	<div class="form-group">
-		<label for="name">Name</label>
-		<input type="text" placeholder="Enter name" name="name" id="name" required />
+<form method="POST" action="?/createLocation" class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto space-y-4" use:enhance>
+	<div>
+		<label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+		<input type="text" placeholder="Enter name" name="name" id="name" required 
+			class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
 	</div>
 
-	<div class="form-group">
-		<label for="street">Street</label>
-		<textarea placeholder="Enter street address" name="street" id="street" required></textarea>
+	<div>
+		<label for="street" class="block text-sm font-medium text-gray-700">Street</label>
+		<textarea placeholder="Enter street address" name="street" id="street" required 
+			class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 resize-none h-20"></textarea>
 	</div>
 
-	<button type="submit" class="btn-primary form-button">Add Location</button>
+	<button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md text-lg font-semibold hover:bg-blue-700 transition">
+		Add Location
+	</button>
 </form>
-
-<style>
-	.form-title {
-		font-size: 24px;
-		margin-bottom: 20px;
-		text-align: center;
-		color: #333;
-	}
-
-	.form-container {
-		background: #fff;
-		border-radius: 8px;
-		padding: 20px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-		max-width: 400px;
-		width: 100%;
-		margin: 0 auto;
-	}
-
-	.form-group {
-		margin-bottom: 15px;
-	}
-
-	.form-group label {
-		display: block;
-		font-size: 14px;
-		margin-bottom: 5px;
-		color: #555;
-	}
-
-	.form-group input,
-	.form-group textarea {
-		width: 100%;
-		padding: 10px;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		font-size: 14px;
-		transition: border-color 0.3s ease;
-		box-sizing: border-box;
-	}
-
-	.form-group input:focus,
-	.form-group textarea:focus {
-		border-color: #007bff;
-		outline: none;
-	}
-
-	.form-group textarea {
-		resize: none;
-		height: 80px;
-	}
-
-	.btn-primary {
-		background-color: #007bff;
-		color: #fff;
-		border: none;
-		padding: 10px 15px;
-		font-size: 16px;
-		border-radius: 4px;
-		cursor: pointer;
-		width: 100%;
-		transition: background-color 0.3s ease;
-		text-align: center;
-	}
-
-	.btn-primary:hover {
-		background-color: #0056b3;
-	}
-</style>

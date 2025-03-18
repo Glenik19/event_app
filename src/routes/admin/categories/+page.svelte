@@ -6,90 +6,31 @@
 	let { data, form } = $props();
 </script>
 
-<h1 class="dashboard-title">Categories</h1>
+<h1 class="text-2xl mb-6 text-center text-gray-800 font-bold ">Categories</h1>
 
-<a href="/admin/categories/new" class="dashboard-link">Create a New Category</a>
+<a href="/admin/categories/new" class="inline-block bg-blue-500 text-white text-decoration-none py-2 px-4 rounded mb-5 transition-colors duration-300 ease-in-out hover:bg-blue-700">
+	Create a New Category
+</a>
 
 {#if form && !form.success}
 	<Warning message={form.message} />
 {/if}
 
-<div class="events-container">
+<div class="flex flex-col gap-4">
 	{#each data.categories as category (category.id)}
-		<div class="event-box" transition:slide>
-			<p class="event-details">
+		<div class="bg-white rounded-lg p-4 shadow-md transition-all duration-200" transition:slide>
+			<p class="text-sm text-gray-600 mb-2">
 				<strong>ID:</strong>
 				{category.id} |
 				<strong>Name:</strong>
 				{category.name}
 			</p>
-			<form action="?/deleteCategory" method="POST" use:enhance class="delete-form">
+			<form action="?/deleteCategory" method="POST" use:enhance class="flex justify-end">
 				<input type="hidden" name="id" value={category.id} />
-				<button type="submit" class="delete-button">Delete</button>
+				<button type="submit" class="bg-red-500 text-white border-none py-2 px-3 rounded cursor-pointer text-sm transition-colors duration-300 ease-in-out hover:bg-red-700">
+					Delete
+				</button>
 			</form>
 		</div>
 	{/each}
 </div>
-
-<style>
-	.dashboard-title {
-		font-size: 2em;
-		margin-bottom: 20px;
-		text-align: center;
-		color: #333;
-	}
-
-	.dashboard-link {
-		display: inline-block;
-		background-color: #007bff;
-		color: #fff;
-		text-decoration: none;
-		padding: 10px 15px;
-		border-radius: 4px;
-		margin-bottom: 20px;
-		transition: background-color 0.3s ease;
-	}
-
-	.dashboard-link:hover {
-		background-color: #0056b3;
-	}
-
-	.events-container {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-	}
-
-	.event-box {
-		background: #fff;
-		border-radius: 8px;
-		padding: 15px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	}
-
-	.event-details {
-		font-size: 14px;
-		color: #555;
-		margin-bottom: 10px;
-	}
-
-	.delete-form {
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	.delete-button {
-		background-color: #ff4d4d;
-		color: #fff;
-		border: none;
-		padding: 8px 12px;
-		border-radius: 4px;
-		cursor: pointer;
-		font-size: 14px;
-		transition: background-color 0.3s ease;
-	}
-
-	.delete-button:hover {
-		background-color: #cc0000;
-	}
-</style>
